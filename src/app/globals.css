@@ -72,11 +72,13 @@
   * {
     @apply border-border;
   }
+
   html,
   body,
   main {
-    @apply min-h-screen h-full;
+    min-height: 100vh;
   }
+
   body {
     -webkit-tap-highlight-color: transparent;
     @apply bg-background text-foreground;

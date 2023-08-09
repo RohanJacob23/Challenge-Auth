@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import SigninForm from "@/components/SigninForm";
 import Link from "next/link";
+import SocialLogins from "@/components/SocialLogins";
 
 export default function page() {
   return (
@@ -34,36 +35,7 @@ export default function page() {
           </p>
 
           {/* social profile sigin in methods */}
-          <div className="flex justify-center items-center space-x-5">
-            <Image
-              src="/socialProfiles/Google.svg"
-              alt="google"
-              width={100}
-              height={100}
-              className="w-11 h-11 cursor-pointer"
-            />
-            <Image
-              src="/socialProfiles/Facebook.svg"
-              alt="facebook"
-              width={100}
-              height={100}
-              className="w-11 h-11 cursor-pointer"
-            />
-            <Image
-              src="/socialProfiles/Twitter.svg"
-              alt="twitter"
-              width={100}
-              height={100}
-              className="w-11 h-11 cursor-pointer"
-            />
-            <Image
-              src="/socialProfiles/Github.svg"
-              alt="github"
-              width={100}
-              height={100}
-              className="w-11 h-11 cursor-pointer"
-            />
-          </div>
+          <SocialLogins />
 
           <p className="text-[#828282] text-sm">
             Dont&apos;t have an account yet?{" "}
