@@ -79,6 +79,11 @@
     min-height: 100vh;
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   body {
     -webkit-tap-highlight-color: transparent;
     @apply bg-background text-foreground;

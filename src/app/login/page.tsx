@@ -8,7 +8,7 @@ import SocialLogins from "@/components/SocialLogins";
 export default function page() {
   return (
     <main className="flex flex-col items-center justify-center">
-      <Card className="border-none border md:border-solid border-[#BDBDBD] rounded-3xl w-full h-full md:w-[30rem] md:h-[34rem]">
+      <Card className="border-none border md:border-solid border-[#BDBDBD] rounded-3xl w-full h-full md:w-[30rem] md:min-h-[34rem]">
         <CardContent className="p-5 md:p-14 pt-4 md:pt-0 pb-8">
           <Image
             src="/devchallenges.svg"

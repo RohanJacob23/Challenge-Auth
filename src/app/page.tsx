@@ -13,9 +13,10 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Profile } from "@/types/types";
 import Header from "@/components/Header";
+import Link from "next/link";
 
-const URL = "https://auth-henna-eight.vercel.app";
-// const URL = "http://localhost:3000";
+// const URL = "https://auth-henna-eight.vercel.app";
+const URL = "http://localhost:3000";
 
 async function getUserProfile(email: string): Promise<Profile> {
   const res = await fetch(`${URL}/api/getUser?email=${email}`, {
@@ -39,17 +40,17 @@ export default async function Home() {
   }
   const user = session.user;
   const userProfile = await getUserProfile(user?.email ?? "");
-  const firstLetterOfFirstName = user?.name?.split(" ")[0].charAt(0);
-  const firstLetterOfLastName = user?.name?.split(" ")[1].charAt(0);
+  const firstLetterOfFirstName = userProfile.name.split(" ")[0].charAt(0);
+  const firstLetterOfLastName = userProfile.name.split(" ")[1].charAt(0);
 
   return (
     <main className="md:px-20 py-7">
       {/* header section */}
       <Header
-        name={user?.name}
+        name={userProfile.name}
         firstLetterOfFirstName={firstLetterOfFirstName}
         firstLetterOfLastName={firstLetterOfLastName}
-        image={user?.image}
+        image={userProfile.image}
       />
 
       {/* profile section */}
@@ -68,10 +69,11 @@ export default async function Home() {
               </CardDescription>
             </div>
             <Button
+              asChild
               variant="outline"
               className="font-medium text-base text-[#828282] rounded-xl"
             >
-              Edit
+              <Link href="/update-profile">Edit</Link>
             </Button>
           </CardHeader>
           <Separator className="hidden md:block" />
@@ -79,14 +81,17 @@ export default async function Home() {
             <div className="flex flex-col">
               <div className="flex items-center justify-between md:justify-normal md:space-x-44 py-11 px-5 md:px-12 md:py-11">
                 <h1 className="text-sm w-12">PHOTO</h1>
-                {user?.image && (
-                  <Image
-                    src={user?.image}
-                    width={100}
-                    height={100}
-                    alt="user"
-                    className="w-[4.5rem] h-[4.5rem] rounded-lg"
-                  />
+                {userProfile.image && (
+                  <picture>
+                    <source srcSet={userProfile.image} />
+                    <img
+                      src={userProfile.image}
+                      width={100}
+                      height={100}
+                      alt="user"
+                      className="w-[4.5rem] h-[4.5rem] rounded-lg object-cover"
+                    />
+                  </picture>
                 )}
               </div>
               <Separator />

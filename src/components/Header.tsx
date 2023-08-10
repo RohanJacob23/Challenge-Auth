@@ -61,6 +61,7 @@ export default function Header({
               width={20}
               height={20}
               alt="user-icon"
+              priority={true}
               className="dark:hidden"
             />
             <Image
@@ -68,6 +69,7 @@ export default function Header({
               width={20}
               height={20}
               alt="user-icon"
+              priority={true}
               className="hidden dark:block"
             />
             <span>My Profile</span>
@@ -78,6 +80,7 @@ export default function Header({
               width={20}
               height={20}
               alt="user-icon"
+              priority={true}
               className="dark:hidden"
             />
             <Image
@@ -85,6 +88,7 @@ export default function Header({
               width={20}
               height={20}
               alt="user-icon"
+              priority={true}
               className="hidden dark:block"
             />
             <span>Group Chat</span>

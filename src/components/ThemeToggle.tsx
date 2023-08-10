@@ -16,7 +16,11 @@ export function ModeToggle() {
   const { setTheme } = useTheme();
   const pathname = usePathname();
   return (
-    <div className={`${pathname === "/" ? "hidden" : "block"}`}>
+    <div
+      className={`${
+        pathname === "/" || pathname === "/update-profile" ? "hidden" : "block"
+      }`}
+    >
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" size="icon">

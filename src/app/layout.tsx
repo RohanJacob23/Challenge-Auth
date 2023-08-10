@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import { ModeToggle } from "@/components/ThemeToggle";
+import { Toaster } from "@/components/ui/toaster";
 
 const noto_sans = Noto_Sans({ weight: ["400", "500"], subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
             <ModeToggle />
           </div>
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
