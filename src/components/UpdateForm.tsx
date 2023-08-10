@@ -52,8 +52,8 @@ export default function UpdateForm({
   const [file, setFile] = useState<File | null>(null);
   const PRESET = "y2hbrubt";
   const uploadUrl = "https://api.cloudinary.com/v1_1/dsgswsu80/image/upload";
-  const url = "http://localhost:3000";
-  //   const url="http://localhost:3000";
+  // const url = "http://localhost:3000";
+  const url = "https://auth-henna-eight.vercel.app";
   const { toast } = useToast();
   const router = useRouter();
 

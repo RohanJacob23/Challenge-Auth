@@ -13,13 +13,10 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
-import Image from "next/image";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import UpdateForm from "@/components/UpdateForm";
 
-// const URL = "https://auth-henna-eight.vercel.app";
-const URL = "http://localhost:3000";
+const URL = "https://auth-henna-eight.vercel.app";
+// const URL = "http://localhost:3000";
 
 async function getUserProfile(email: string): Promise<Profile> {
   const res = await fetch(`${URL}/api/getUser?email=${email}`, {

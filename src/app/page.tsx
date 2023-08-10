@@ -15,8 +15,8 @@ import { Profile } from "@/types/types";
 import Header from "@/components/Header";
 import Link from "next/link";
 
-// const URL = "https://auth-henna-eight.vercel.app";
-const URL = "http://localhost:3000";
+const URL = "https://auth-henna-eight.vercel.app";
+// const URL = "http://localhost:3000";
 
 async function getUserProfile(email: string): Promise<Profile> {
   const res = await fetch(`${URL}/api/getUser?email=${email}`, {
