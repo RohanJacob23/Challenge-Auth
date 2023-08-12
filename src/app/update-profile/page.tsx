@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { Profile } from "@/types/types";
+import { Profile, User } from "@/types/types";
 import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
@@ -18,8 +18,8 @@ import UpdateForm from "@/components/UpdateForm";
 const URL = "https://auth-henna-eight.vercel.app";
 // const URL = "http://localhost:3000";
 
-async function getUserProfile(email: string): Promise<Profile> {
-  const res = await fetch(`${URL}/api/getUser?email=${email}`, {
+async function getUserProfile(id: string): Promise<Profile> {
+  const res = await fetch(`${URL}/api/getUser?id=${id}`, {
     cache: "no-store",
   });
   // The return value is *not* serialized
@@ -38,8 +38,8 @@ export default async function page() {
   if (!session) {
     redirect("/login");
   }
-  const user = session.user;
-  const userProfile = await getUserProfile(user?.email ?? "");
+  const user: User | undefined = session.user;
+  const userProfile = await getUserProfile(user?.id ?? "");
   const firstLetterOfFirstName = userProfile.name.split(" ")[0].charAt(0);
   const firstLetterOfLastName = userProfile.name.split(" ")[1].charAt(0);
   return (

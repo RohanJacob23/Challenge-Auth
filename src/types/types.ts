@@ -31,3 +31,10 @@ export interface UploadResponse {
   version_id: string;
   width: number;
 }
+
+export interface User {
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  image?: string | null | undefined;
+  id?: string | undefined;
+}

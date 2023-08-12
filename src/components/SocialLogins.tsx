@@ -21,6 +21,7 @@ export default function SocialLogins() {
         width={100}
         height={100}
         className="w-11 h-11 cursor-pointer"
+        onClick={() => signIn("facebook", { callbackUrl: "/" })}
       />
       <Image
         src="/socialProfiles/Twitter.svg"
@@ -28,6 +29,7 @@ export default function SocialLogins() {
         width={100}
         height={100}
         className="w-11 h-11 cursor-pointer"
+        onClick={() => signIn("twitter", { callbackUrl: "/" })}
       />
       <Image
         src="/socialProfiles/Github.svg"
@@ -35,6 +37,7 @@ export default function SocialLogins() {
         width={100}
         height={100}
         className="w-11 h-11 cursor-pointer"
+        onClick={() => signIn("github", { callbackUrl: "/" })}
       />
     </div>
   );

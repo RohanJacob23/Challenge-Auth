@@ -4,10 +4,12 @@ import { redirect } from "next/navigation";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const email = searchParams.get("email");
-  if (!email) return redirect("/signin");
+  const id = searchParams.get("id");
+  if (!id) return redirect("/signin");
   const userProfile = await prisma.profile.findUnique({
-    where: { email },
+    where: {
+      userid: id,
+    },
   });
   return NextResponse.json({ ...userProfile });
 }
