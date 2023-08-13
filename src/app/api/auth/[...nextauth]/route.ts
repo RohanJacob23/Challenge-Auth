@@ -49,21 +49,20 @@ export const authOptions: AuthOptions = {
   },
   events: {
     async createUser({ user }) {
-      console.log(user);
-      // const userPrisma = await prisma.user.findUnique({
-      //   where: { id: user.id },
-      // });
-      // if (userPrisma) {
-      //   await prisma.profile.create({
-      //     data: {
-      //       name: user.name ?? "",
-      //       email: user.email ?? "",
-      //       image: user.image ?? "",
-      //       bio: "",
-      //       userid: userPrisma?.id,
-      //     },
-      //   });
-      // }
+      const userPrisma = await prisma.user.findUnique({
+        where: { id: user.id },
+      });
+      if (userPrisma) {
+        await prisma.profile.create({
+          data: {
+            name: user.name ?? "",
+            email: user.email ?? "",
+            image: user.image ?? "",
+            bio: "",
+            userid: userPrisma?.id,
+          },
+        });
+      }
     },
   },
 };
